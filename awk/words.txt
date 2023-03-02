@@ -1,6 +1,0 @@
-Now that the input is separated into records, the second step is to separate
-the fields in the records. One way to do this is to divide each of the lines 
-into fields in the normal manner. This happens by default as the result of a 
-special feature. When RS is set to the empty string and FS is set to a single
-character, the newline character always acts as a field separator. This is in
-addition to whatever field separations result from FS. 
