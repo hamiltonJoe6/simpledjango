@@ -1,0 +1,11 @@
+{% block content %}
+<h1>{{ article.title }}</h1>
+<p>
+{{ article.text }}
+</p>
+<p>
+</p>
+<p>
+<a href="{% url 'myarts:all' %}">All articles</a>
+</p>
+{% endblock %}

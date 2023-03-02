@@ -1,0 +1,20 @@
+{{ instance.title }}<br/>
+{{ instance.content }}<br/>
+{{ instance.id }}<br/>
+<p>Author: {{ instance.user }}</p>
+{% if instance.user.get_full_name %}
+<p>Full Name: {{ instance.user.get_full_name }}</p>
+{% endif %}
+{% if instance.image %}
+<img src='{{ instance.image.url }}' />
+{% endif %}
+
+<p>{{instance.likes}} liked the post</p>
+<p><a href="{% url 'Stu:like' instance.id %}">Like</a></p>
+
+<a href="{% url 'Stu:comment'  instance.id %}">Add Comment</a>
+
+<h2>Comments</h2>
+{% for c in instance.comment_set.all  %}
+<p>{{c.name}}: {{c.body}}</p>
+{% endfor %}

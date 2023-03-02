@@ -1,0 +1,9 @@
+<form method="post" enctype="multipart/form-date">
+	{% csrf_token %}
+<div>
+{{ form.media }}
+{{ form.as_p }}
+</div>
+
+<input type="submit">
+</form>

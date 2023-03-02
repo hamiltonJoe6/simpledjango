@@ -1,0 +1,25 @@
+<html>
+<head>
+        <title>Login Page</title>
+</head>
+<body>
+{% block title %}Home Page{% endblock title %}
+{% if form.errors %}
+        <p>Your usrname and password didn't match please try again</p>
+{% endif %}
+{% if next %}
+        {% if user.is_authenticated %}
+        <p>Your accound dosn't have access to this page, to proceed please login with a
+        valid account</p>
+        {% else %}
+        <p>Please login to see this site</p>
+        {% endif %}
+{% endif %}
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+{{ form.as_p }}
+<input type="submit" class="btn btn-primary" value="Login" />
+<input type="hidden" name="next" value="{{ next }}" />
+<a href="{% url 'Stu:list'%}">List</a>
+</form>
+</body>

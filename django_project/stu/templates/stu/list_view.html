@@ -1,0 +1,22 @@
+{% load stu_tags %}
+{% block content %}
+<form method='GET' action=''>
+	<input type='text' name='qry' placeholder='Search posts' />
+	<input type='submit' value='Search' />
+</form>
+
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<p>{{ title }} Page</p>
+{% for stu in stu_list %}
+<h4><a href='{{ stu.get_absolute_url }}'>{{ stu.title }}</a></h4><br/>
+<h4>{{ stu.title }}</h4>
+<p>{{ stu.content|lower|article_shorten_body:30 }}</p>
+{% endfor %}
+{% endblock %}
